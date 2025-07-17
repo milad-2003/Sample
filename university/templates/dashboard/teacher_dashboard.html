@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>پنل استاد</title>
+</head>
+<body>
+    <h2>سلام {{ teacher.user.username }}!</h2>
+    <h3>دوره‌های شما:</h3>
+    <ul>
+        {% for course in courses %}
+            <li>{{ course.title }} - {{ course.description }}</li>
+        {% empty %}
+            <li>هیچ دوره‌ای ندارید.</li>
+        {% endfor %}
+    </ul>
+    <a href='create_course' style="text-decoration: none; color: green;">ایجاد دوره</a><br>
+    <a href='/logout' style="text-decoration: none; color: red;">خروج از حساب</a>
+</body>
+</html>

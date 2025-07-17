@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>پنل دانشجو</title>
+</head>
+<body>
+    <h2>سلام {{ student.user.username }}!</h2>
+    <h3>دوره‌های ثبت‌نام شده:</h3>
+    <ul>
+        {% for take in taken_courses %}
+            <li>{{ take.course.title }} - {{ take.enrolled_at|date:"Y-m-d" }}</li>
+        {% empty %}
+            <li>در هیچ دوره‌ای ثبت‌نام نکرده‌اید.</li>
+        {% endfor %}
+    </ul>
+
+    <h3>تمام دوره‌ها:</h3>
+<ul>
+    {% for course in all_courses %}
+        <li>
+            {{ course.title }} -
+            <a href="{% url 'enroll_in_course' course.id %}">ثبت‌نام</a>
+        </li>
+    {% endfor %}
+</ul>
+
+
+    <a href='/logout' style="text-decoration: none; color: red;">خروج از حساب</a>
+</body>
+</html>

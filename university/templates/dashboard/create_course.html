@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head><meta charset="UTF-8"><title>ساخت دوره جدید</title></head>
+<body>
+    <h2>ایجاد دوره جدید</h2>
+    {% if messages %}
+        {% for message in messages %}
+            <p style="color: red;">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <label>عنوان دوره:</label>
+        <input type="text" name="title" required><br><br>
+        <label>توضیحات:</label>
+        <textarea name="description" required></textarea><br><br>
+        <button type="submit">ایجاد</button>
+    </form>
+    <a href="{% url 'dashboard' %}">بازگشت به داشبورد</a>
+</body>
+</html>
