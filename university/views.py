@@ -10,7 +10,6 @@ User = get_user_model()
 
 
 def index(request):
-    print(request.user)
     return render(request, 'index.html', {'user': request.user})
 
 def signup(request):
